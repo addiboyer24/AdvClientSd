@@ -1,0 +1,36 @@
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    
+    <style>
+        a{
+            font-size:20px;
+            color:black;
+            text-decoration:none;
+        }
+        a:hover{
+            font-size:26px;
+            color:gold;
+            text-decoration:underline;
+        }
+    </style>
+
+
+    <body style="background-color:darkgray;">
+        
+        <center><h1>Interactive part</h1>
+        
+        <h2 id="score">Score: 0</h2>
+        <canvas style="background-color:black;" height="460px" width="500px" id="game"></canvas>
+        <button style="background-color:green; color:white; "id="play" onclick="startGame();">Play</button></center>
+        <br><br>
+        <center><a href="webworker.html">Web worker</a></center>
+
+    </body>
+    
+    
+   
+<script src="./Resources/game.js"></script>
+    
+</html>

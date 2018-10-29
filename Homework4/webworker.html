@@ -1,0 +1,63 @@
+<html>
+
+    <head>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    </head>
+
+    
+    <body style="background-color:darkgray;">
+        
+        <h1>Web worker example (loading pokemon images from a file).</h1>
+        <iframe src="https://giphy.com/embed/gb8oBoaxZb2FO" width="480" height="268" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/pokemon-pokegraphic-gif-gb8oBoaxZb2FO">via GIPHY</a></p>
+        <br><br>
+        
+        <button style="background-color:red; float:left;" onclick="startWorker();" id="See">See PokemonGo Pokemon</button>
+        <br><br>
+        
+        
+    
+    
+    </body>
+    
+    <script>
+        
+        var w; 
+        
+        function startWorker(){
+            if(typeof(Worker)!== undefined){
+                if(typeof(w) != undefined){
+                    w = new Worker("myworker.js");  
+                }
+                document.getElementById("See").disabled=true;
+                w.onmessage = function(e){
+                    var width = 900;
+                   var canvas =  d3.select("body").append("svg").attr("width",width).attr("height",1700).style("background-color", "white");
+                    
+                    d3.select("body").style("background-color", "red");
+                var xoff = 0;
+                var yoff = 0;
+               for(var i = 0; i < e.data.length; i++){canvas.append("svg:image").attr("x",100*xoff).attr("y",100*yoff).attr("width",100).attr("height",100).attr("xlink:href",e.data[i]);
+                xoff+=1;
+                if(xoff == 9){
+                    xoff=0;
+                    yoff+=1;
+                }
+                    
+                
+                                                     }
+                    
+                    stopWorker();
+                    
+                };
+            }
+        }
+        
+        function stopWorker(){
+            w.terminate();
+            w = undefined;
+        }
+    
+    </script>
+
+
+</html>
