@@ -1,0 +1,156 @@
+label{
+	color:black;
+	font-family: Calibri;
+	font-size:16pt;
+}
+	
+	body{
+	background-image:url("math.jpg");
+	background-repeat:horizontal;
+}
+button{
+	border:solid 2px;
+	background-color:white;
+	font-family:Sans Comic MS, Times New Roman;
+	color:black;
+	font-size:16pt;
+	border-color:black;
+	
+}
+textarea{
+	font-family:Sans Comic MS, Times New Roman;
+	color:darkblue;
+}
+input{
+	font-family:Comic Sans MS, Times New Roman;
+	color:blue;
+	width:20%;
+	height:auto;
+}
+h1{
+	color:#ff6666;
+	text-align:center;
+	background-color:black;
+	font-size:40pt;
+	font-family:Comic Sans MS, Times New Roman;
+	width:100%;
+	text-shadow: 2px 2px white;
+}
+.topnav{
+	background-color:darkgray;
+	display:block;
+	font-size:22pt;
+	text-align:center;
+}
+a{
+	padding-left:5px;
+	padding-right:5px;
+	color:yellow;
+	font-size:20pt;
+	text-align:center;
+	font-family:Comic Sans MS, Times New Roman;
+	text-decoration:underline;
+}
+a:hover{
+	padding-left:6px;
+	padding-right:6px;
+	background-color:yellow;
+	text-shadow: 1px 1px black;
+	color:lightgray;
+	font-size:28pt;
+	text-align:center;
+	text-decoration:none;
+	
+}
+details{
+	text-align:center;
+	color:darkblue;
+	font-size:16pt;
+}
+ul{
+	font-size:20pt;
+	font-family:Comic Sans MS, Times New Roman;
+	color:white;
+}
+h2{
+	font-family:Comic Sans MS, Times New Roman;
+}
+h3{
+	font-family:Comic Sans MS, Times New Roman;
+}
+label{
+	font-family:Comic Sans MS, Times New Roman;
+	font-size:20pt;
+	text-align:center;
+}
+iframe{
+	background-image:url("math.jpg");
+	background-repeat:horizontal;
+
+}
+p{
+	font-family:Comic Sans MS, Times New Roman;
+	font-size:14pt;
+	color:black;
+}
+body{
+margin: 0;
+padding: 0;
+font-family: 'Raleway', sans-serif;
+font-size: 15px;
+line-height: 1.5;
+}
+#container {
+width: 535px;
+background: #ffffff;
+padding: 20px;
+margin: 90px auto;
+border-radius: 5px;
+height: 150px;
+border: 2px solid gray;
+}
+#header {
+text-align: center;
+background-color: #FEFFED;
+border-radius: 5px;
+margin: -39px -20px 10px -20px;
+}
+h2{
+padding-top: 10px;
+}
+#content {
+margin-left: 57px;
+margin-top: 40px;
+}
+#register label{
+margin-right:5px;
+}
+#register input {
+padding: 5px 14px;
+border: 1px solid #d5d9da;
+box-shadow: 0 0 9px #0E34F5 inset;
+width: 272px;
+font-size: 1em;
+height: 25px;
+}
+#register .short{
+font-weight:bold;
+color:#FF0000;
+font-size:larger;
+}
+#register .weak{
+font-weight:bold;
+color:orange;
+font-size:larger;
+}
+#register .good{
+font-weight:bold;
+color:#2D98F3;
+font-size:larger;
+}
+#register .strong{
+font-weight:bold;
+color: limegreen;
+font-size:larger;
+}
+

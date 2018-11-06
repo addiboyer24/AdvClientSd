@@ -1,0 +1,86 @@
+<html>
+
+<head>
+<title>Registration</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="advstyle.css">
+<script src="./jquery.cookie.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<div class="topnav">
+<a href="advhome.html">Home</a>
+<a href="advexperience.html">Experience</a>
+<a href="advcontact.html">Contact</a>
+<a href="advmathgame.html">Math Game</a>
+</div>
+
+<h1>Registration</h1>
+<p style="text-align:right; background-color:red; width:20%;" id="namelabel">Please login</p>
+<div id="stuff">
+<center><label id="unl">Username: </label><br><input onfocus="changeColor(this)" onblur="changeBack(this)" type="text" id="username" required><br>
+<label id="pwl">Password: </label><br><input onfocus="changeColor(this)" onblur="changeBack(this)" type="password" id="pw" required><br>
+<label>Password strength: </label><br>
+<span id="result"></span>
+<br><br>
+<label id="ddl">Employer Type: </label><br><select id="dropdown"><option selected disabled>Select Value</option><option>Non-profit</option><option>For-profit</option></select>
+<br><br><button id="submit" type="submit" onclick="createCookie()">Login</button>
+<br>
+</center>
+</div>
+<center>
+<label id="experience">Information appears here<label>
+</center>
+
+<script src="mathfunctions.js">
+
+</script>
+<script>
+function createCookie(){
+// Changed cookie functionality to use JQuery cookie plugin!
+
+var value = document.getElementById("username").value;
+
+$.cookie("username", value);
+
+document.getElementById("namelabel").innerHTML = "Hello " + $.cookie("username");
+var empType = document.getElementById("dropdown").value;
+console
+if(empType == "Non-profit"){
+	$.get("./experiences.json", function(data){
+	var obj = JSON.parse(data);
+	document.getElementById("experience").innerHTML = "Employer: " + obj.employer + "<br>" + "Employer type: " + obj.employertype;
+});
+	
+}
+else if(empType == "For-profit"){
+
+	$.get("./experiences2.json", function(data){
+	var obj = JSON.parse(data);
+	document.getElementById("experience").innerHTML = "Employer: " + obj.employer + "<br>" + "Employer type: " + obj.employertype;
+});	
+
+	
+}
+
+$("#stuff").fadeToggle();
+
+
+
+
+
+
+}
+</script>
+
+<script src="passwordcheck.js"></script>
+
+
+
+
+</body>
+
+
+</html>

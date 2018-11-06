@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>Experience</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="advstyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body onload="loadData()">
+
+<div class="topnav">
+<a href="advhome.html">Home</a>
+<a href="advcontact.html">Contact</a>
+<a href="advmathgame.html">Math Game</a>
+<a href="advregistration.html">Register</a>
+<a style="color:red;" href="https://github.com/LynneSpears/Game-Project">Github Repo</a>
+</div>
+
+<center><h1>Experience</h1>
+<center><iframe src="http://free.timeanddate.com/clock/i6e8dmth/n3358/szw110/szh110/hocff0/hbw2/cf100/hnc00f/hccff0/hcw5/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hwm2" frameborder="0" width="110" height="110"></iframe></center>
+<h2 style="color:silver; text-shadow:2px 2px black; font-size:30pt;">Education</h2>
+<h3 style="float:left; padding-left:20px; color:maroon; font-size:25pt;">Undergraduate</h3>
+<h3 style="float:right; padding-right:20px; color:maroon; font-size:25pt;">Graduate</h3></center>
+<br>
+<br>
+<p style="float:left; padding-left:15px; text-align:left;" id="expDataUndergrad"></p>
+<p style="float:right; padding-left 15px; text-align:left;" id="expDataGrad"></p>
+<br>
+<center><image style="float:center;" width="50%" class="photo" src="boyer.JPG"></center>
+<br>
+<center><h2 style="color:silver; text-shadow:2px 2px black; font-size:30pt;">Work Experience</h2></center>
+<h3 style="float:left; padding-left:20px; color:maroon; font-size:25pt;">Non-Profit Employer</h3>
+<h3 style="float:right; padding-right:20px; color:maroon; font-size:25pt;">For-Profit Employer</h3></center>
+<br><br>
+<p style="float:left; padding-left:15px; text-align:left;" id="nonprofit"></p>
+<p style="float:right; padding-left 15px; text-align:left;" id="forprofit"></p>
+<br><br><br><br>
+<image id="coin" style="position:absolute;" src="./coin.JPG">
+<image id="nonprofit" style="position:absolute;" src="./nonprofit.png">
+</body>
+
+<script>
+// Use Ajax to get experiences
+$(document).ready(function(){
+	$.get("./experiences.json", function(data){
+		var obj = JSON.parse(data);
+		document.getElementById("nonprofit").innerHTML = "Employer: " + obj.employer + "<br>" + 
+	"Employer Type: " + obj.employertype;
+		
+	});
+	
+	$.get("./experiences2.json", function(data){
+	var obj = JSON.parse(data);
+	document.getElementById("forprofit").innerHTML = "Employer: " + obj.employer + "<br>" + 
+	"Employer Type: " + obj.employertype;
+		
+	});
+	
+	$("#coin").animate({left: 800},600).animate({top: '-=50'},600).animate({top: '+=50'},600);
+});
+function loadData(){
+	var myData = [{"university": "University of Montana", "city": "Missoula", "state": "MT", "degree": "Bachelor of Science", "major": "Computer Science", "minor": "Mathematics", "gpa": "3.68", "graduation": "May 2018"},{"university": "University of Montana", "city": "Missoula", "state": "MT", "degree": "Master of Science", "major": "Computer Science", "minor": "Education", "gpa": "N/A", "graduation": "May 2020"}];
+	var myOtherData = [{"employer": "Habitat for Humanity", "employertype": "Non-profit"},{"employer": "Montana Community Theater", "employertype": "For-profit"}];
+	document.getElementById("expDataUndergrad").innerHTML = "School: " + myData[0].university + "<br>" + 
+	"City: " + myData[0].city + "<br>" + 
+	"State: " + myData[0].state + "<br>" + 
+	"Degree: " + myData[0].degree + "<br>" + 
+	"Major: " + myData[0].major + "<br>" + 
+	"Minor: " + myData[0].minor + "<br>" + 
+	"GPA: " + myData[0].gpa + "<br>" + 
+	"Graduation date: " + myData[0].graduation;
+	
+	document.getElementById("expDataGrad").innerHTML = "School: " + myData[1].university + "<br>" + 
+	"City: " + myData[1].city + "<br>" + 
+	"State: " + myData[1].state + "<br>" + 
+	"Degree: " + myData[1].degree + "<br>" + 
+	"Major: " + myData[1].major + "<br>" + 
+	"Concentration: " + myData[1].minor + "<br>" + 
+	"GPA: " + myData[1].gpa + "<br>" + 
+	"Graduation date: " + myData[1].graduation;
+	
+	
+ }
+</script>
+
+
+
+
+</html>
