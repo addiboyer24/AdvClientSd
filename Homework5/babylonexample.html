@@ -1,0 +1,230 @@
+<html>
+
+    <head>
+        <title>Babylon Animation</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="advstyle.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    </head>
+    
+    <style>
+        #scene{
+            width:100%;
+            height:100%;
+            background-color:blue;
+        }
+        body,html{
+            text-align:center;
+            background-color:darkblueB;
+            color:white;
+        }
+    
+    </style>
+
+    <body>
+        
+        <div class="topnav">
+<a href="advhome.html">Home</a>
+<a href="advexperience.html">Experience</a>
+<a href="advcontact.html">Contact</a>
+<a href="advmathgame.html">Math Game</a>
+<a href="advregistration.html">Register</a>
+<a href="invaders.html">Phaser game</a>
+
+</div>
+        <h1>Shout out to the ASPCA!</h1>
+        
+        <canvas id="scene"></canvas>
+    
+        <script>
+            
+            // Get the canvas element
+            var canvas = document.getElementById("scene");
+            
+            var gameEngine = new BABYLON.Engine(canvas, true);
+            
+            var createScene = function(){
+                
+                var scene = new BABYLON.Scene(gameEngine);
+                
+                // Add a camera to the scene and attach it to the canvas
+			var camera = new BABYLON.ArcRotateCamera("Camera", 3 * Math.PI / 4, Math.PI / 4, 4, BABYLON.Vector3.Zero(), scene);
+			camera.attachControl(canvas, true);
+
+			// Add lights to the scene
+			var light1 = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(1, 1, 0), scene);
+			var light2 = new BABYLON.PointLight("light2", new BABYLON.Vector3(0, 1, -1), scene);
+		
+			var options = {
+			width: .5,
+			height: .5,
+			depth: .5,
+		   
+			};
+            
+                
+			// Add and manipulate meshes in the scene
+			var box1 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box2 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box3 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box4 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box5 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box6 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box7 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box8 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+            var box9 = BABYLON.MeshBuilder.CreateBox("box", options, scene);
+                
+            box2.position.x = -.7;
+			box2.position.y = 0;
+                
+            box3.position.x = .7;
+            box3.position.y = 0;
+                
+            box4.position.z = -.7;
+            box4.position.x = -.7;
+            box5.position.z = -.7;
+            box6.position.z = -.7;
+            box6.position.x = .7;
+                
+            box7.position.z = .7;
+            box7.position.x = -.7;
+            box8.position.z = .7;
+            box9.position.z = .7;
+            box9.position.x = .7;
+                
+                // if you use a sprite sheet
+		var mat1 = new BABYLON.StandardMaterial("mat", scene);
+		var texture1 = new BABYLON.Texture("./Media/golden.jpg", scene);
+		mat1.diffuseTexture = texture1;
+		box1.material = mat1;
+                
+        var mat2 = new BABYLON.StandardMaterial("mat", scene);
+		var texture2 = new BABYLON.Texture("./Media/german.jpg", scene);
+		mat2.diffuseTexture = texture2;
+		box2.material = mat2;
+                
+        var mat3 = new BABYLON.StandardMaterial("mat", scene);
+		var texture3 = new BABYLON.Texture("./Media/bernard.jpg", scene);
+		mat3.diffuseTexture = texture3;
+		box3.material = mat3;
+        
+        var mat4 = new BABYLON.StandardMaterial("mat", scene);
+		var texture4 = new BABYLON.Texture("./Media/newfie.jpg", scene);
+		mat4.diffuseTexture = texture4;
+		box4.material = mat4;
+         
+        var mat5 = new BABYLON.StandardMaterial("mat", scene);
+		var texture5 = new BABYLON.Texture("./Media/collie.jpg", scene);
+		mat5.diffuseTexture = texture5;
+		box5.material = mat5;
+                
+        var mat6 = new BABYLON.StandardMaterial("mat", scene);
+		var texture6 = new BABYLON.Texture("./Media/spaniel.jpg", scene);
+		mat6.diffuseTexture = texture6;
+		box6.material = mat6;
+                
+        var mat7 = new BABYLON.StandardMaterial("mat", scene);
+		var texture7 = new BABYLON.Texture("./Media/saintberdoodle.jpeg", scene);
+		mat7.diffuseTexture = texture7;
+		box7.material = mat7;
+                
+        var mat8 = new BABYLON.StandardMaterial("mat", scene);
+		var texture8 = new BABYLON.Texture("./Media/goldendoodle.jpg", scene);
+		mat8.diffuseTexture = texture8;
+		box8.material = mat8;
+        
+        var mat9 = new BABYLON.StandardMaterial("mat", scene);
+		var texture9 = new BABYLON.Texture("./Media/husky.jpg", scene);
+		mat9.diffuseTexture = texture9;
+		box9.material = mat9;
+                
+        // add music to the scene
+			var music = new BABYLON.Sound("Music", "./Media/sadsong.mp3", scene, null, { loop: true, autoplay: true });
+                
+        var frameRate = 1;
+	// animation in y-axis
+    var animationBox1 = new BABYLON.Animation("yAnimation", "rotation.y", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+																		BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+                
+    var animationBox2 = new BABYLON.Animation("xAnimation", "rotation.x", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+																		BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+                
+    var animationBox3 = new BABYLON.Animation("zAnimation", "rotation.z", frameRate, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
+																		BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+    //Here we have chosen a loop mode, but you can change to :
+    //  Use previous values and increment it (BABYLON.Animation.ANIMATIONLOOPMODE_RELATIVE)
+    //  Restart from initial value (BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE)
+    //  Keep the final value (BABYLON.Animation.ANIMATIONLOOPMODE_CONSTANT)
+
+    // Animation keys
+    var keyFramesR = []; 
+
+		keyFramesR.push({
+		   frame: frameRate,
+		   value: Math.PI
+		});
+
+		keyFramesR.push({
+		   frame: 2 * frameRate,
+		   value: 2 * Math.PI
+		});
+
+		keyFramesR.push({
+		   frame: 3 * frameRate,
+		   value: 3 * Math.PI
+		});
+
+
+		//Adding keys to the animation object
+		animationBox1.setKeys(keyFramesR);
+		animationBox2.setKeys(keyFramesR);
+		animationBox3.setKeys(keyFramesR);
+        
+
+		//Then add the animation object to box1
+		box1.animations.push(animationBox1);
+        box2.animations.push(animationBox1);
+        box3.animations.push(animationBox1);
+        box4.animations.push(animationBox2);
+        box5.animations.push(animationBox2);
+        box6.animations.push(animationBox2);
+        box7.animations.push(animationBox3);
+        box8.animations.push(animationBox3);
+        box9.animations.push(animationBox3);
+        
+        scene.beginAnimation(box1, 0, 100, true);
+        scene.beginAnimation(box2, 0, 100, true);
+        scene.beginAnimation(box3, 0, 100, true);
+        scene.beginAnimation(box4, 0, 100, true);
+        scene.beginAnimation(box5, 0, 100, true);
+        scene.beginAnimation(box6, 0, 100, true);
+        scene.beginAnimation(box7, 0, 100, true);
+        scene.beginAnimation(box8, 0, 100, true);
+        scene.beginAnimation(box9, 0, 100, true);
+                
+			return scene;
+
+		}; 
+
+        var scene = createScene(); //Call the createScene function
+
+        // Register a render loop to repeatedly render the scene
+        gameEngine.runRenderLoop(function () { 
+                scene.render();
+        });
+
+        // Watch for browser/canvas resize events
+        window.addEventListener("resize", function () { 
+                gameEngine.resize();
+        });
+                
+           
+            
+        
+        </script>
+    
+    </body>
+</html>
