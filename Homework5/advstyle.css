@@ -1,6 +1,6 @@
 label{
 	color:black;
-	font-family: Calibri;
+	font-family: Courier New, Times New Roman;
 	font-size:16pt;
 }
 	
@@ -11,33 +11,32 @@ label{
 button{
 	border:solid 2px;
 	background-color:white;
-	font-family:Sans Comic MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	color:black;
 	font-size:16pt;
 	border-color:black;
 	
 }
 textarea{
-	font-family:Sans Comic MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	color:darkblue;
 }
 input{
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	color:blue;
 	width:20%;
 	height:auto;
 }
 h1{
-	color:#ff6666;
+	color:Beige;
 	text-align:center;
 	background-color:black;
 	font-size:40pt;
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	width:100%;
-	text-shadow: 2px 2px white;
 }
 .topnav{
-	background-color:darkgray;
+	background-color:beige;
 	display:block;
 	font-size:22pt;
 	text-align:center;
@@ -45,22 +44,20 @@ h1{
 a{
 	padding-left:5px;
 	padding-right:5px;
-	color:yellow;
+	color:black;
 	font-size:20pt;
 	text-align:center;
-	font-family:Comic Sans MS, Times New Roman;
-	text-decoration:underline;
+	font-family:Courier New, Times New Roman;
+	text-decoration:none;
+    background-color:white;
 }
 a:hover{
 	padding-left:6px;
 	padding-right:6px;
-	background-color:yellow;
-	text-shadow: 1px 1px black;
-	color:lightgray;
+    color:black;
 	font-size:28pt;
 	text-align:center;
-	text-decoration:none;
-	
+    background-color:beige;
 }
 details{
 	text-align:center;
@@ -69,17 +66,17 @@ details{
 }
 ul{
 	font-size:20pt;
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	color:white;
 }
 h2{
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 }
 h3{
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 }
 label{
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	font-size:20pt;
 	text-align:center;
 }
@@ -89,7 +86,7 @@ iframe{
 
 }
 p{
-	font-family:Comic Sans MS, Times New Roman;
+	font-family:Courier New, Times New Roman;
 	font-size:14pt;
 	color:black;
 }
