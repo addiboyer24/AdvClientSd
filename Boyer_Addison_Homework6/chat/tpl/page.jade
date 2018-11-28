@@ -1,0 +1,11 @@
+html
+    head
+        title= "Real time web chat"
+    script(src='/chat.js')
+    script(src='/socket.io/socket.io.js')
+    body
+        #content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll; background-color:lightgray; font-family: Courier New; font-size:24px;')
+        .controls
+    
+    input#field(style='width:350px; background-color:lightgray; font-family:Courier New; font-size:20px;')
+    input#send(style='font-family:Courier New; font-size:20px;' type='button', value='send')
